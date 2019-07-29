@@ -1,0 +1,9 @@
+<h1> Please Login or create a new account </h1>
+<%= form_for @users do |f| %>
+<%= f.label :name %>
+<%= f.text_field :name %>
+<%= f.password_field :password %>
+<%= f.submit "Submit"%>
+<% end %>
+
+<%= button_to "/users/new", "Create New User" %> 
