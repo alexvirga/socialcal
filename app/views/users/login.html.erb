@@ -1,5 +1,5 @@
 <h1> Please Login or create a new account </h1>
-<%= form_for @users do |f| %>
+<%= form_tag @users do |f| %>
 <%= f.label :name %>
 <%= f.text_field :name %>
 <%= f.password_field :password %>

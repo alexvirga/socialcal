@@ -25,6 +25,7 @@ class UsersController < ApplicationController
   end
 
   def login
+    @users = User.find(params[:id])
   end
 
   def index
