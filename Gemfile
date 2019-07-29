@@ -29,6 +29,9 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'google-api-client', '~> 0.11'
 
+gem 'bootstrap', '~> 4.1.1'
+gem 'jquery-rails'
+
 
 
 # Use ActiveStorage variant

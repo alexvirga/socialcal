@@ -1,8 +1,5 @@
-<h1>Sessions#new</h1>
-<p>Find me in app/views/sessions/new.html.erb</p>
 
-
-
+<div id="login_form">
 <p id=”alert”><%= alert %></p>
 <h1>Login</h1>
 <%= form_tag "/sessions" do |form| %>
@@ -17,4 +14,7 @@
   <div class=”actions”>
     <%= submit_tag "login" %>
   </div>
+
 <% end %>
+</div>
+
