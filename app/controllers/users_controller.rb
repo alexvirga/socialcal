@@ -21,7 +21,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @groups = Group.all
-    @usergroup = UserGroup.all
+    @usergroup = UserGroup.new
     @events = Event.all
     @userevents = UserEvent.all
   end
