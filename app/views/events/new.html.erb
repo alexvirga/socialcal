@@ -1,2 +1,15 @@
-<h1>Events#new</h1>
-<p>Find me in app/views/events/new.html.erb</p>
+<%= form_for @event do |f| %>
+<%= f.label :title, "Title:" %>
+<%= f.text_field :title %>
+<%= f.label :location, "Location:" %>
+<%= f.text_field :location %>
+<%= f.label :description, "Description:" %>
+<%= f.text_field :description %>
+<%= f.label :host, "Host:" %>
+<%= f.text_field :host %>
+<%= f.label :start_time, "Start Time:" %>
+<%= f.datetime_field :start_time %>
+<%= f.label :end_time, "End Time:" %>
+<%= f.datetime_field :end_time %>
+<%= f.submit %>
+<% end %>
