@@ -3,16 +3,19 @@
   <h2>Age: <%= @user.age %> </h2>
   <h2>Bio: <%= @user.bio %> </h2>
 
-  <select name="forma" onchange="location = this.value;">
-      <option value="/">Home</option>
-      <option value=<%="#{}"%> >Contact</option>
-      <option value="Sitemap.php">Sitemap</option>
-     </select>
+
 
   <h2>My Groups</h2>
   <% @user.groups.each do |group| %>
   <h3> <ul><%= link_to group.name, "/groups/#{group.id}" %> </ul> </h3>
   <% end %>
+
+
+  <select name="forma" onchange="location = this.value;">
+      <% @user.groups.each do |group| %>
+        <option value=<%"/groups/#{group.id}"%> ><%= group.name %></option>
+        <% end %>
+       </select>
 
 
   <%= month_calendar events: @user.events do |date, events| %>

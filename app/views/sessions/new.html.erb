@@ -1,5 +1,5 @@
 
-<div id="header">
+<!-- <div id="header">
 <p id=”alert”><%= alert %></p>
 <h1>Login</h1>
 <%= form_tag "/sessions" do |form| %>
@@ -17,5 +17,34 @@
   </div>
 
 <% end %>
-</div>
+</div> -->
 
+<body>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-10 col-xl-9 mx-auto">
+          <div class="card card-signin flex-row border-0 shadow my-5">
+            <div class="card-img-left d-none d-md-flex">
+            </div>
+            <div class="card-body">
+              <h5 class="card-title text-center">Login!</h5>
+              <%= form_tag "/sessions" do %>
+                <div class="form-label-group">
+                  <%= text_field_tag("name", nil, {class: "form-control"})%>
+                  <label>Username</label>
+                </div>
+                <div class="form-label-group">
+                  <%= password_field_tag("password", nil, {class: "form-control"})%>
+                  <label>Password</label>
+                </div>
+                <%= submit_tag 'Login', class: "btn btn-sm btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" %>
+                <hr class="my-4">
+              <% end %>
+              <h5 class="card-title text-center">Don't have an account?</h5>
+              <%= button_to('Sign Up', signup_path, :class => "btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2", :method => "get") %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
