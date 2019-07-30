@@ -1,9 +1,17 @@
+<div id="header">
 <h1> <%= @group.name  %> </h1>
 <h2>Group Description:<%= @group.description  %> </h2>
 <h2>Members:</h2>
-<h2> <% @group.users.each do |user|  %> </h2>
-<h2></h2><%= link_to user.name, "/users/#{user.id}" %></h2>
+<h2> <% my_users = @group.users.each do |user|  %> </h2>
+<h3><%= link_to user.name, "/users/#{user.id}" %></h3>
 <% end %>
+<h2>Events:</h2>
+<% my_users.each do |users| %>
+<% users.events.each do |events| %>
+<h3><%=link_to events.title, "/events/#{events.id}" %> </h3>
+<% end %>
+<% end %>
+</div>
 
 
 

@@ -1,5 +1,5 @@
 
-
+html
 
 <h1><%= @user.name %> </h1>
 <h2>Age: <%= @user.age %> </h2>
@@ -8,7 +8,19 @@
 
 <h2>My Groups</h2>
 <% @user.groups.each do |group| %>
-<h2> <li><%= link_to group.name, "/groups/#{group.id}" %> </li> </h2>
+<h3> <ul><%= link_to group.name, "/groups/#{group.id}" %> </ul> </h3>
+<% end %>
+
+
+<%= month_calendar events: @user.events do |date, events| %>
+  <small><%= date.day %> </small>
+
+  <% events.each do |event| %>
+    <div>
+      <%= link_to event.title, event_path(event) %>
+      <p>Host: <%= event.host %> </p> 
+    </div>
+  <% end %>
 <% end %>
 
 
