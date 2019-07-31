@@ -1,21 +1,54 @@
-<body id="body">
-  <h1><%= @user.name %> </h1>
-  <h2>Age: <%= @user.age %> </h2>
-  <h2>Bio: <%= @user.bio %> </h2>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<!-- <div class="user_body">
+      <blockquote>
+          <h1 class="display-1"><%= @user.name %> </h1>
+        <h4>Age: <%= @user.age %> </h4>
+        <cite title="My Groups">  <h2>My Groups</h2>
+          <% @user.groups.each do |group| %>
+          <h3> <ul><%= link_to group.name, "/groups/#{group.id}" %> </ul> </h3>
+          <% end %> <i class="icon-map-marker"></i></cite></small>
+      </blockquote>
+      <p>
+        <h3>Bio: <%= @user.bio %></h3>
+        <h3><%= button_to "Create Event", new_event_path, method: :get %></h3>
+      </p>
+    </div>
+  </div>
+</div> -->
+<body>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-10 col-xl-9 mx-auto">
+          <div class="card card-signin flex-row border-0 shadow my-5">
+            <div class="card-img-left d-none d-md-flex">
+            </div>
+            <div class="card-body">
+              <h1 class="card-body text-center">Profile</h1>
+              <h5 class="card-title text-center"> <%= @user.name %></h5>
+              <h5 class="card-title text-center"> Age: <%= @user.age %></h5>
+              <h5 class="card-title text-center"> Bio: <%= @user.bio %></h5>
+              <h5 class="card-title text-center"> My Groups: <% 
+               @user.groups.each do |group| %>
+              <%= link_to group.name, "/groups/#{group.id}" %> </ul> </h3>
+              <% end %>
+<br>
+              <h5 class="card-title text-center">Looking for new events?</h5>
+              <%= button_to('Join Group', new_usergroup_path, :class => "btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2", :method => "get") %>
+              <br>
+              <%= button_to('Create Event', new_event_path, :class => "btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2", :method => "get") %>
+<br>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
 
 
-
-  <h2>My Groups</h2>
-  <% @user.groups.each do |group| %>
-  <h3> <ul><%= link_to group.name, "/groups/#{group.id}" %> </ul> </h3>
-  <% end %>
-
-
-  <select name="forma" onchange="location = this.value;">
-      <% @user.groups.each do |group| %>
-        <option value=<%"/groups/#{group.id}"%> ><%= group.name %></option>
-        <% end %>
-       </select>
 
 
   <%= month_calendar events: @user.events do |date, events| %>

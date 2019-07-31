@@ -1,15 +1,45 @@
-<%= form_for @event do |f| %>
-<%= f.label :title, "Title:" %>
-<%= f.text_field :title %>
-<%= f.label :location, "Location:" %>
-<%= f.text_field :location %>
-<%= f.label :description, "Description:" %>
-<%= f.text_field :description %>
-<%= f.label :host, "Host:" %>
-<%= f.text_field :host %>
-<%= f.label :start_time, "Start Time:" %>
-<%= f.datetime_field :start_time %>
-<%= f.label :end_time, "End Time:" %>
-<%= f.datetime_field :end_time %>
-<%= f.submit %>
-<% end %>
+
+
+<div class="container">
+        <div class="row">
+          <div class="col-lg-10 col-xl-9 mx-auto">
+            <div class="card card-signin flex-row border-0 shadow my-5">
+              <div class="card-img-left d-none d-md-flex">
+              </div>
+              <div class="card-body">
+                <h5 class="card-title text-center">Create Event</h5>
+                <%= form_for @event do |f| %>
+                  <div class="form-label-group">
+                    <%= f.text_field :title, class: 'form-control' %>
+                    <label>Title</label>
+                  </div>
+                  <div class="form-label-group">
+                    <%= f.text_field :location, class: 'form-control' %>
+                    <label>Location</label>
+                  </div>
+                  <div class="form-label-group">
+                        <%= f.text_field :description, class: 'form-control' %>
+                        <label>Description</label>
+                      </div>
+                    <div class="form-label-group">
+                         <%= f.date_field :start_time, class: 'form-control' %>
+                         <label>Event Start</label>
+                          </div>
+                    <div class="form-label-group">
+                        <%= f.date_field :end_time, class: 'form-control' %>
+                        <label>Event End</label>
+                        </div> 
+                  <hr>
+                  <div class="form-label-group">
+                    <%= f.text_field :host, class: 'form-control' %>
+                    <label>Host</label>
+                  </div>
+                  <%= f.submit "Create Event", class: "btn btn-lg btn-primary btn-block text-uppercase" %>
+                  <hr class="my-4">
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
