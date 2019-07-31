@@ -21,7 +21,14 @@
               <div class="card-img-left d-none d-md-flex">
               </div>
               <div class="card-body">
-                <h5 class="card-title text-center">Sign Up!</h5>
+                <h5 class="card-title text-center">Sign Up! 
+                    <% if flash[:message] %>
+                    <br>
+                    <br>
+                    <%= flash[:message] %>
+                    <% end %>                    
+                </h5>
+                
                 <%= form_for @user do |f| %>
                   <div class="form-label-group">
                     <%= f.text_field :name, class: 'form-control' %>

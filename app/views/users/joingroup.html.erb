@@ -16,6 +16,9 @@
                   <%= submit_tag "Join Group", class: "btn btn-lg btn-primary btn-block text-uppercase" %>
                   <hr class="my-4">
                 <% end %>
+                <h5 class="card-title text-center">Don't have a group to join?</h5>
+                <%= button_to('Create Group', new_group_path, :class => "btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2", :method => "get") %>
+  
               </div>
             </div>
           </div>

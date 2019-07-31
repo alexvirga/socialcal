@@ -32,9 +32,9 @@
               <h5 class="card-title text-center"> <%= @user.name %></h5>
               <h5 class="card-title text-center"> Age: <%= @user.age %></h5>
               <h5 class="card-title text-center"> Bio: <%= @user.bio %></h5>
-              <h5 class="card-title text-center"> My Groups: <% 
-               @user.groups.each do |group| %>
-              <%= link_to group.name, "/groups/#{group.id}" %> </ul> </h3>
+              <h5 class="card-title text-center"> My Groups:</h5>
+                <% @user.groups.each do |group| %>
+              <li id="profile_groups"> <%= link_to group.name, "/groups/#{group.id}" %> </li>
               <% end %>
 <br>
               <h5 class="card-title text-center">Looking for new events?</h5>

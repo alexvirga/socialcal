@@ -9,7 +9,6 @@ class EventsController < ApplicationController
     @event = Event.new
   end
 
-
   def create
     @user = session[:user_id]
     @event = Event.new(event_params)
