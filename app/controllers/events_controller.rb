@@ -10,12 +10,13 @@ class EventsController < ApplicationController
   end
 
   def create
+    @user = session[:user_id]
     @event = Event.new(event_params)
     if @event.valid?
       @event.save
-      redirect_to @event
+      UserEvent.create(user_id: @user, event_id: @event.id, :host => true)
+      redirect_to user_path(@user)
     else
-      flash.now[:messages] = @user.errors.full_messages[0]
       render "new"
     end
   end

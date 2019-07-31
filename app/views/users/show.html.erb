@@ -28,6 +28,7 @@
             </div>
             <div class="card-body">
               <h1 class="card-body text-center">Profile</h1>
+              <p id="edit_user" ><%= link_to "Edit Profile", "/users/#{@user.id}/edit"%> </p> 
               <h5 class="card-title text-center"> <%= @user.name %></h5>
               <h5 class="card-title text-center"> Age: <%= @user.age %></h5>
               <h5 class="card-title text-center"> Bio: <%= @user.bio %></h5>
@@ -40,6 +41,7 @@
               <%= button_to('Join Group', "/users/#{@user.id}/groups", :class => "btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2", :method => "get") %>
               <br>
               <%= button_to('Create Event', new_event_path, :class => "btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2", :method => "get") %>
+
 <br>
             </div>
           </div>
