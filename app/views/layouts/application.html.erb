@@ -51,12 +51,10 @@
             <a class="nav-link" >Groups</a>
           </li>
           <div class="dropdown-content">
-            <% @user = session[:user_id] %>
-            <% %>
-            <%  %>
-            <a href="#">Link 1</a>
-            <a href="#">Link 2</a>
-            <a href="#">Link 3</a>
+              <% @user.groups.each do |group| %>
+              <%= link_to group.name, "/groups/#{group.id}" %>
+              <% end %>
+
           </div>
         </div>
         </ul>
