@@ -46,6 +46,7 @@
           <li class="nav-item">
             <a class="nav-link" href="/logout">Logout</a>
           </li>
+          <% if @user  %>
           <div class="dropdown">
           <li class="nav-item">
             <a class="nav-link" >Groups</a>
@@ -54,7 +55,8 @@
               <% @user.groups.each do |group| %>
               <%= link_to group.name, "/groups/#{group.id}" %>
               <% end %>
-
+              <% else %>
+              <% end  %>
           </div>
         </div>
         </ul>
