@@ -29,6 +29,16 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_params)
+      redirect_to @user
+    else
+      flash.now[:messages] = @user.errors.full_messages[0]
+      render "edit"
+    end
+  end
+
   def login
     @users = User.find(params[:id])
   end
