@@ -7,7 +7,7 @@
 <% end  %>
 <% @hosts.each do |host| %>
 <% if host.event_id.to_i == @event.id%>
-<%=@host = host.user.name %>
+<% @host = host.user %>
 <% end  %>
 <% end  %>
 
@@ -23,10 +23,12 @@
                 </div>
                 <div class="card-body">
                   <h1 class="card-body text-center"><%= @event.title %></h1>
+                  <% if session[:user_id] == @host.id.to_i %>
                   <p id="edit_event" ><%= link_to "Edit Event", "/event/#{@event.id}/edit"%> </p>
+                  <% end  %>
                   <h5 class="card-title text-center"> Location: <%= @event.location %></h5>
                   <h5 class="card-title text-center"> Description: <%= @event.description %></h5>
-                  <h5 class="card-title text-center"> Host: <%= @host %></h5>
+                  <h5 class="card-title text-center"> Host: <%= @host.name %></h5>
                   <h5 class="card-title text-center"> Start: <%= @event.start_time.strftime("%B %d, %Y") %></h5>
                   <h5 class="card-title text-center"> End: <%= @event.end_time.strftime("%B %d, %Y") %></h5>
                   <h5 class="card-title text-center"> Attendees:</h5>
@@ -36,7 +38,9 @@
     <br>
                   <h5 class="card-title text-center">Looking for new events?</h5>
                   <br>
-                  <%= button_to('Find Events', events_path, :class => "btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2", :method => "get") %>
+
+                   <%= button_to('Find Events', events_path, :class => "btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2", :method => "get") %>
+
     <br>
                 </div>
               </div>

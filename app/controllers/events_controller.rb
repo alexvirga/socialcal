@@ -25,6 +25,7 @@ class EventsController < ApplicationController
   end
 
   def show
+    @user = session[:user_id]
     @event = Event.find(params[:id])
   end
 
