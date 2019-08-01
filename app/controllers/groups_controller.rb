@@ -17,7 +17,7 @@ class GroupsController < ApplicationController
     @group = Group.new(group_params)
     if @group.valid?
       @group.save
-      UserGroup.create(user_id: @user, group_id: @group.id)
+      UserGroup.create(user_id: @user, group_id: @group.id, leader: true)
       redirect_to @group
     else
       flash.now[:messages] = @group.errors.full_messages[0]

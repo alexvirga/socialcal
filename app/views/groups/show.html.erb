@@ -56,11 +56,13 @@
     <% end %>
     <% end %>
 
-
+    <div id ="cal-table-format"></div>
+    <div id="calendar-format"> 
     <%= month_calendar events: @unique_events do |date, events| %>
     <small><%= date.day %> </small>
+  </div>
 
-    <% events.each do |event| %>
+  <% events.each do |event| %>
       <div>
         <%= link_to event.title, event_path(event) %>
         <p>Host:        
@@ -82,6 +84,8 @@
       </div>
     <% end %>
   <% end %>
+    </div>
+
 
   </body>
 
