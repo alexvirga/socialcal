@@ -40,7 +40,7 @@
               <h5 class="card-title text-center">Looking for new events?</h5>
               <%= button_to('Join Group', "/users/#{@user.id}/groups", :class => "btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2", :method => "get") %>
               <br>
-              <%= button_to('Create Event', new_event_path, :class => "btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2", :method => "get") %>
+              <%= button_to('Find Events', events_path, :class => "btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2", :method => "get") %>
 <br>
             </div>
           </div>
