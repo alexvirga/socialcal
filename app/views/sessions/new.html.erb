@@ -28,6 +28,9 @@
             </div>
             <div class="card-body">
               <h5 class="card-title text-center">Login!</h5>
+              <% if flash[:alert] %>
+              <h3> <%= flash[:alert] %></h3>
+              <% end %>
               <%= form_tag "/sessions" do %>
                 <div class="form-label-group">
                   <%= text_field_tag("name", nil, {class: "form-control"})%>
