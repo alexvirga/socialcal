@@ -27,9 +27,8 @@
             <div class="card-img-left d-none d-md-flex">
             </div>
             <div class="card-body">
-              <h1 class="card-body text-center">Profile</h1>
+              <h1 class="card-body text-center"><%= @user.name %></h1>
               <p id="edit_user" ><%= link_to "Edit Profile", "/users/#{@user.id}/edit"%> </p>
-              <h5 class="card-title text-center"> <%= @user.name %></h5>
               <h5 class="card-title text-center"> Age: <%= @user.age %></h5>
               <h5 class="card-title text-center"> Bio: <%= @user.bio %></h5>
               <h5 class="card-title text-center"> My Groups:</h5>
@@ -58,7 +57,21 @@
     <% events.each do |event| %>
       <div>
         <%= link_to event.title, event_path(event) %>
-        <p>Host: <%= event.host %> </p> 
+        <p>Host: 
+        <% @hosts = [] %>
+        <% UserEvent.all.each do |userevent| %>
+        <% if userevent.host == true %>
+        <% @hosts << userevent %>
+        <% @hosts %>
+        <% end  %>
+        <% end  %>
+        <% @hosts.each do |host| %>
+        <% if host.event_id.to_i == event.id%>
+        <% @host = host.user.name %>
+        <%= @host %>
+        <% end  %>
+        <% end  %>
+         </p> 
       </div>
     <% end %>
   <% end %>

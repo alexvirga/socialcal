@@ -24,7 +24,7 @@
                 <div class="card-body">
                   <h1 class="card-body text-center"><%= @event.title %></h1>
                   <% if session[:user_id] == @host.id.to_i %>
-                  <p id="edit_event" ><%= link_to "Edit Event", "/event/#{@event.id}/edit"%> </p>
+                  <p id="edit_event" ><%= link_to "Edit Event", edit_event_path(@event)%> </p>
                   <% end  %>
                   <h5 class="card-title text-center"> Location: <%= @event.location %></h5>
                   <h5 class="card-title text-center"> Description: <%= @event.description %></h5>

@@ -24,25 +24,21 @@
             <div class="card-img-left d-none d-md-flex">
             </div>
             <div class="card-body">
-              <h1 class="card-body text-center">Group profile</h1>
+              <h1 class="card-body text-center"> <%= @group.name.capitalize %> Group</h1>
               <%= @group.users.size %>
               <% if @group.users.size == 1 %>
               Member
               <% else %>
               Members
               <% end %>
-              <h5 class="card-title text-center"> <%= @group.name %></h5>
-              <h5 class="card-title text-center"> Description: <%= @group.description %></h5>
-              <h5 class="card-title text-center"> My Members:</h5>
-              <% @group.users.each do |user| %>
-              <li id="profile_groups"><%= link_to user.name, "/users/#{user.id}" %> </li>
-              <%user.events.each do |events| %>
-              <h5 class="card-title text-center">
-                
-                <%= events.title %> </h5>
+              <h5 class="card-title text-center"><strong> Description:</strong> <%= @group.description %></h5>
+              <h5 class="card-title text-center"> <strong>Group Members:</strong></h5>
+              <h5 id="show-group-members"><% @group.users.each do |user| %> </h5>
+              <ul id="show-group-members"><%= user.name %> </ul>
+              <h5 class="card-title text-center"> 
                 <% end %>
-                
-                <% end %>
+                <br>
+                <br>
                 <p id="edit_group" ><%= link_to "Edit Group", "/groups/#{@group.id}/edit"%> </p>
                 <%= link_to  "Leave Group", "/groups/usergroups/#{@group.id}", method: "delete" %>
                 <br>
@@ -67,7 +63,22 @@
     <% events.each do |event| %>
       <div>
         <%= link_to event.title, event_path(event) %>
-        <p>Host: <%= event.host %> </p> 
+        <p>Host:        
+          <% @hosts = [] %>
+          <% UserEvent.all.each do |userevent| %>
+          <% if userevent.host == true %>
+          <% @hosts << userevent %>
+          <% @hosts %>
+          <% end  %>
+          <% end  %>
+          <% @hosts.each do |host| %>
+          <% if host.event_id.to_i == event.id%>
+          <% @host = host.user.name %>
+          <%= @host %>
+          <% end  %>
+          <% end  %>
+          
+           </p> 
       </div>
     <% end %>
   <% end %>
