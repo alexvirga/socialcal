@@ -31,6 +31,12 @@
               <h5 class="card-title text-center"> My Members:</h5>
                 <% @group.users.each do |user| %>
                 <li id="profile_groups"><%= link_to user.name, "/users/#{user.id}" %> </li>
+                <%user.events.each do |events| %>
+                <h5 class="card-title text-center">
+              
+                <%= events.title %> </h5>
+                <% end %>
+
               <% end %>
               <%= link_to  "Leave Group", "/groups/usergroups/#{@group.id}", method: "delete" %>
 <br>

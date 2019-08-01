@@ -3,6 +3,8 @@ class EventsController < ApplicationController
   skip_before_action :authorized?, only: [:new, :create]
 
   def index
+    @events = Event.all
+    @groups = Group.all
   end
 
   def new
