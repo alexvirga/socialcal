@@ -54,6 +54,12 @@ class UsersController < ApplicationController
     redirect_to user_path(@user)
   end
 
+  def joinevent_create
+    @user = User.find(session[:user_id])
+    UserEvent.create(user_id: @user.id, event_id: params[:id])
+    redirect_to user_path(@user)
+  end
+
   def user_params
     params.require(:user).permit(:name, :age, :bio, :password)
   end
