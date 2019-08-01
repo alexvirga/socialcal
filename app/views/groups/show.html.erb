@@ -25,27 +25,57 @@
             </div>
             <div class="card-body">
               <h1 class="card-body text-center">Group profile</h1>
-              <p id="edit_group" ><%= link_to "Edit Group", "/groups/#{@group.id}/edit"%> </p>
+              <%= @group.users.size %>
+              <% if @group.users.size == 1 %>
+              Member
+              <% else %>
+              Members
+              <% end %>
               <h5 class="card-title text-center"> <%= @group.name %></h5>
               <h5 class="card-title text-center"> Description: <%= @group.description %></h5>
               <h5 class="card-title text-center"> My Members:</h5>
-                <% @group.users.each do |user| %>
-                <li id="profile_groups"><%= link_to user.name, "/users/#{user.id}" %> </li>
-                <%user.events.each do |events| %>
-                <h5 class="card-title text-center">
-              
+              <% @group.users.each do |user| %>
+              <li id="profile_groups"><%= link_to user.name, "/users/#{user.id}" %> </li>
+              <%user.events.each do |events| %>
+              <h5 class="card-title text-center">
+                
                 <%= events.title %> </h5>
                 <% end %>
-
-              <% end %>
-              <%= link_to  "Leave Group", "/groups/usergroups/#{@group.id}", method: "delete" %>
-<br>
+                
+                <% end %>
+                <p id="edit_group" ><%= link_to "Edit Group", "/groups/#{@group.id}/edit"%> </p>
+                <%= link_to  "Leave Group", "/groups/usergroups/#{@group.id}", method: "delete" %>
+                <br>
+              </div>
             </div>
-          </div>
         </div>
       </div>
     </div>
+
+    <% groups_events = [] %>
+    <% @group.users.each do |user| %>
+    <% user.events.each do |event| %>
+    <% groups_events << event %>
+    <% @unique_events = groups_events.uniq %>
+    <% end %>
+    <% end %>
+
+
+    <%= month_calendar events: @unique_events do |date, events| %>
+    <small><%= date.day %> </small>
+
+    <% events.each do |event| %>
+      <div>
+        <%= link_to event.title, event_path(event) %>
+        <p>Host: <%= event.host %> </p> 
+      </div>
+    <% end %>
+  <% end %>
+
   </body>
+
+
+
 
 
 
