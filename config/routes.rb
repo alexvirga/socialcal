@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   post "/usergroups/new", to: "usergroups#create"
   post "/users/:id/joingroup", to: "users#joingroup_create"
+  delete "/groups/usergroups/:id", to: "usergroups#destroy"
 
   resources :users, :groups, :events, :usergroups
 

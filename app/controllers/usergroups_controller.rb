@@ -27,4 +27,13 @@ class UsergroupsController < ApplicationController
 
   def edit
   end
+
+  def destroy
+    @user = User.find(session[:user_id])
+    @group = Group.find(params[:id])
+    @found = UserGroup.find_by(user_id: @user.id, group_id: @group.id)
+    @found.destroy
+    redirect_to user_path(@user)
+  end
+
 end

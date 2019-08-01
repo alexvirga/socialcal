@@ -28,10 +28,11 @@
               <p id="edit_group" ><%= link_to "Edit Group", "/groups/#{@group.id}/edit"%> </p>
               <h5 class="card-title text-center"> <%= @group.name %></h5>
               <h5 class="card-title text-center"> Description: <%= @group.description %></h5>
-              <h5 class="card-title text-center"> My Members: <% 
-               @group.users.each do |user| %>
-              <%= link_to user.name, "/users/#{user.id}" %> </ul> </h3>
+              <h5 class="card-title text-center"> My Members:</h5>
+                <% @group.users.each do |user| %>
+                <li id="profile_groups"><%= link_to user.name, "/users/#{user.id}" %> </li>
               <% end %>
+              <%= link_to  "Leave Group", "/groups/usergroups/#{@group.id}", method: "delete" %>
 <br>
             </div>
           </div>

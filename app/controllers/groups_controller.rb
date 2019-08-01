@@ -28,6 +28,7 @@ class GroupsController < ApplicationController
   def show
     if session[:user_id]
       @group = Group.find(params[:id])
+      @user = User.find(session[:user_id])
     else
       redirect_to "/login"
     end
