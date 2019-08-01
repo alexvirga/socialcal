@@ -4,6 +4,7 @@ class User < ApplicationRecord
   has_many :groups, through: :user_groups
   has_many :user_events
   has_many :events, through: :user_events
+  has_many :messages
   validates :name, uniqueness: :true
   validates :age, numericality: { only_integer: true }
   validates :age, numericality: { greater_than: 18 }

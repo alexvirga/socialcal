@@ -87,6 +87,32 @@
     </div>
 
 
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-10 col-xl-9 mx-auto">
+          <div class="card card-signin flex-row border-0 shadow my-5">
+            <div class="card-img-left d-none d-md-flex">
+            </div>
+            <div class="card-body">
+              <h1 class="card-body text-center"> <%= @group.name.capitalize %> Group</h1>
+              
+              <h5 class="card-title text-center"> <strong> Messages:</strong></h5>
+              <h5 id="show-group-members"><% @group.messages.each do |message| %> </h5>
+              <ul id="show-group-members"><b><%= message.user.name %>:</b> <%= message.content %> </ul>
+              <h5 class="card-title text-center"> 
+                <% end %>
+                <br>
+                <br>
+                <br>
+                <%= form_tag "/groups/#{@group.id}/message" do %>
+                <%= text_field_tag "Message", "content" %>
+                <%= submit_tag "send message" %>
+                <% end %>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
   </body>
 
 
