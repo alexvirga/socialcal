@@ -26,20 +26,24 @@
                   <% if session[:user_id] == @host.id.to_i %>
                   <p id="edit_event" ><%= link_to "Edit Event", edit_event_path(@event)%> </p>
                   <% end  %>
-                  <h5 class="card-title text-center"> Location: <%= @event.location %></h5>
-                  <h5 class="card-title text-center"> Description: <%= @event.description %></h5>
-                  <h5 class="card-title text-center"> Host: <%= @host.name %></h5>
-                  <h5 class="card-title text-center"> Start: <%= @event.start_time.strftime("%B %d, %Y") %></h5>
-                  <h5 class="card-title text-center"> End: <%= @event.end_time.strftime("%B %d, %Y") %></h5>
-                  <h5 class="card-title text-center"> Attendees:</h5>
+                  <h5 class="card-title text-center"> <b>Location: </b><%= @event.location %></h5>
+                  <h5 class="card-title text-center"> <b>Description:</b> <%= @event.description %></h5>
+                  <h5 class="card-title text-center"> <b>Host: </b><%= @host.name %></h5>
+                  <h5 class="card-title text-center"> <b>Start: </b><%= @event.start_time.strftime("%B %d, %Y") %></h5>
+                  <h5 class="card-title text-center"> <b>End: </b><%= @event.end_time.strftime("%B %d, %Y") %></h5>
+                  <h5 class="card-title text-center"> <b>Attendees: </b> </h5>
 
                     <% @event.users.each do |user| %>
                   <li id="profile_groups"> <%= user.name %> </li>
                   <% end %>
                   <br>
+                  <% if @event.users.ids.include?(@user) %>
+                  <h2 class ="card-body text-center">You are attending this event!</h2>
+                  <% else  %>
                   <%= form_tag "/users/joinevent/#{@event.id}" do %>
                   <%= submit_tag "Attend Event", :class => "btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2"%>
                   <% end %>
+                  <% end  %>
 
     <br>
 

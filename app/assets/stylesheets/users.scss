@@ -4,6 +4,7 @@
 
 
 .user_body {
+  
   text-align: center;
   border-radius: 25px;
   padding: 20px;
@@ -20,12 +21,13 @@
   display: inline-block;
 
   background-color: rgb(255, 255, 255);
-  border-radius: rounded;
+
 }
 
 
 
 .simple-calendar {
+  
     table {
       -webkit-border-horizontal-spacing: 0px;
       -webkit-border-vertical-spacing: 0px;
@@ -40,9 +42,11 @@
   
     tr {
       border-collapse: collapse;
+      
     }
   
     th {
+      
       padding: 6px;
       border-bottom: 2px solid rgb(0, 0, 0);
       border-collapse: collapse;
@@ -55,6 +59,7 @@
     }
   
     td {
+      
       padding: 6px;
       vertical-align: top;
       width: 14%;
@@ -114,4 +119,29 @@
 
     #profile_groups {
       text-align: center
+      
+    }
+
+    #calendar-format{
+      margin: 0% 2% 2% 2%;
+      border-radius: 17px;
+      
+
+    }
+
+    .calendar-heading{ 
+      width: 30%;
+      margin-left: 35%;
+
+      border-radius: 17px;
+      text-align: center;
+      background: rgb(216, 214, 214);
+      border-bottom: #212529;
+      margin-bottom: 4px;
+
+
+    }
+
+    #cal-table-format{
+      border-radius: 17px;
     }
