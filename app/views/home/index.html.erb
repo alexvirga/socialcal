@@ -1,21 +1,40 @@
-
 <body>
-                <div class="container">
-                  <div class="row">
-                    <div class="col-lg-10 col-xl-9 mx-auto">
-                      <div class="card card-signin flex-row border-0 shadow my-5">
-                        <div class="card-img-left d-none d-md-flex">
-                        </div>
-                        <div class="card-body">
-                          <h1 class="card-body text-center">Welcome To SocialCal!</h1>
-                          <h5 class="card-title text-center">Existing user?</h5>
-                          <%= button_to('Login', login_path, :class => "btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2", :method => "get") %>
+  <% if session[:user_id] %>
+  <% @user = User.find(session[:user_id]) %>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-10 col-xl-9 mx-auto">
+        <div class="card card-signin flex-row border-0 shadow my-5">
+          <div class="card-img-left d-none d-md-flex">
+          </div>
+          <div class="card-body">
+            <h1 class="card-body text-center">Welcome <%= @user.name %>!</h1>
+            <%= button_to('View Your Profile', user_path(@user), :class => "btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2", :method => "get") %>
 <br>
-                          <h5 class="card-title text-center">Don't have an account?</h5>
-                          <%= button_to('Sign Up', signup_path, :class => "btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2", :method => "get") %>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </body>
+            <%= button_to('Logout', "/logout", :class => "btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2", :method => "get") %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% else %>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-10 col-xl-9 mx-auto">
+          <div class="card card-signin flex-row border-0 shadow my-5">
+            <div class="card-img-left d-none d-md-flex">
+            </div>
+            <div class="card-body">
+              <h1 class="card-body text-center">Welcome To SocialCal!</h1>
+              <h5 class="card-title text-center">Existing user?</h5>
+              <%= button_to('Login', login_path, :class => "btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2", :method => "get") %>
+  <br>
+              <h5 class="card-title text-center">Don't have an account?</h5>
+              <%= button_to('Sign Up', signup_path, :class => "btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2", :method => "get") %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</body>

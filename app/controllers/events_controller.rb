@@ -25,10 +25,22 @@ class EventsController < ApplicationController
   end
 
   def show
+    @user = session[:user_id]
     @event = Event.find(params[:id])
   end
 
   def edit
+    @event = Event.find(params[:id])
+  end
+
+  def update
+    @event = Event.find(params[:id])
+    if @event.update_attributes(event_params)
+      redirect_to @event
+    else
+      flash.now[:messages] = @event.errors.full_messages[0]
+      render "edit"
+    end
   end
 
   def event_params
