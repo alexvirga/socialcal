@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root "home#index"
   get "/users/:id/groups", to: "users#joingroup"
+  get "/users/:id/events", to: "users#joinevent_create"
 
   get "/login", to: "sessions#new", as: "login"
   get "/signup", to: "users#new", as: "signup"
