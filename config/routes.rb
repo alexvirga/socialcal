@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   post "/users/:id/joingroup", to: "users#joingroup_create"
   delete "/groups/usergroups/:id", to: "usergroups#destroy"
 
+  post "/users/joinevent/:id", to: "users#joinevent_create"
+
   resources :users, :groups, :events, :usergroups, :userevents
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
