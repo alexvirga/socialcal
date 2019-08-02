@@ -7,6 +7,9 @@
                 <div class="card-img-left d-none d-md-flex">
                 </div>
                 <div class="card-body">
+                    <h5 class="card-title text-center">Join a Group to discover new events</h5>
+                    <%= button_to('Find Groups', "/users/#{@user}/groups", :class => "btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2", :method => "get") %>
+                  <br>   
                   <h5 class="card-title text-center">Nothing interesting?</h5>
                   <%= button_to('Create Event', new_event_path, :class => "btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2", :method => "get") %>
                 </div>
