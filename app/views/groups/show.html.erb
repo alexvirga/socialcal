@@ -105,8 +105,8 @@
                 <br>
                 <br>
                 <%= form_tag "/groups/#{@group.id}/message" do %>
-                <%= text_field_tag "Message", "content" %>
-                <%= submit_tag "send message" %>
+                <%= text_field_tag "Message" %>
+                <div class="button_small"> <%= submit_tag "Comment" %> </div>
                 <% end %>
               </div>
             </div>
