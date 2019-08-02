@@ -17,3 +17,15 @@
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
+
+var scrolled = false;
+function updateScroll(){
+    if(!scrolled){
+        var element = document.getElementById("message_box");
+        element.scrollTop = element.scrollHeight;
+    }
+}
+
+$("#message_box").on('scroll', function(){
+    scrolled=true;
+});

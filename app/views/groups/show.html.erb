@@ -95,12 +95,19 @@
             </div>
             <div class="card-body">
               <h1 class="card-body text-center"> <%= @group.name.capitalize %> Group</h1>
-              
               <h5 class="card-title text-center"> <strong> Messages:</strong></h5>
-              <h5 id="show-group-members"><% @group.messages.each do |message| %> </h5>
-              <ul id="show-group-members"><b><%= message.user.name %>:</b> <%= message.content %> </ul>
+                <div id="message_box">
+              <h5 id="show-group-members"><% @group.messages.reverse.each do |message| %> </h5>
+              <ul id="show-group-members"><b>
+                <% if message.user.id == session[:user_id] %>
+                You
+                <% else %>
+                <%= message.user.name %>
+                <% end %>
+                :</b> <%= message.content %> </ul>
               <h5 class="card-title text-center"> 
                 <% end %>
+              </div>
                 <br>
                 <br>
                 <br>
