@@ -50,7 +50,7 @@ class GroupsController < ApplicationController
 
   def add_message
     @new_message = Message.create(user_id: session[:user_id], group_id: params[:id], content: params[:Message])
-    redirect_to group_path(params[:id])
+    redirect_to "/groups/#{params[:id]}#message_box"
   end
 
   private

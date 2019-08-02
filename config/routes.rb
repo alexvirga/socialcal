@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   post "/usergroups/new", to: "usergroups#create"
   post "/users/:id/joingroup", to: "users#joingroup_create"
-  post "//groups/:id/message", to: "groups#add_message"
+  post "/groups/:id/message", to: "groups#add_message"
   delete "/groups/usergroups/:id", to: "usergroups#destroy"
 
   post "/users/joinevent/:id", to: "users#joinevent_create"
