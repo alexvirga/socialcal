@@ -35,6 +35,17 @@ class GroupsController < ApplicationController
   end
 
   def edit
+    @group = Group.find(params[:id])
+  end
+
+  def update
+    @group = Group.find(params[:id])
+    if @group.update_attributes(group_params)
+      redirect_to @group
+    else
+      flash.now[:messages] = @group.errors.full_messages[0]
+      render "edit"
+    end
   end
 
   def add_message

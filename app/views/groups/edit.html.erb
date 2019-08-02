@@ -1,2 +1,27 @@
-<h1>Groups#edit</h1>
-<p>Find me in app/views/groups/edit.html.erb</p>
+<div class="container">
+    <div class="row">
+      <div class="col-lg-10 col-xl-9 mx-auto">
+        <div class="card card-signin flex-row border-0 shadow my-5">
+          <div class="card-img-left d-none d-md-flex">
+          </div>
+          <div class="card-body">
+            <h5 class="card-title text-center">Edit <%= @group.name %> Group</h5>
+            <%= form_for @group do |f| %>
+              <div class="form-label-group">
+                <%= f.text_field :name, class: 'form-control' %>
+                <label>Group Name</label>
+              </div>
+              <div class="form-label-group">
+                <%= f.text_field :description, class: 'form-control' %>
+                <label>Description</label>
+              </div>
+              <hr>
+              <%= f.submit "Create Group", class: "btn btn-lg btn-primary btn-block text-uppercase" %>
+              <hr class="my-4">
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
