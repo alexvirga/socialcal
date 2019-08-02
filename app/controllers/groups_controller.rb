@@ -38,7 +38,6 @@ class GroupsController < ApplicationController
   end
 
   def add_message
-    byebug
     @new_message = Message.create(user_id: session[:user_id], group_id: params[:id], content: params[:Message])
     redirect_to group_path(params[:id])
   end
