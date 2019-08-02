@@ -36,12 +36,6 @@
 
 
   
-  <div style=" 
-  background-color: rgba(175, 175, 175, 0.466);
-      padding: .05px .05px .05px .05px;
-      border-radius: 17px;
-      margin: 1% 3%;
-     ">
 
   <div id="calendar-format" ><%= month_calendar events: @user.events do |date, events| %>
     <small><%= date.day %> </small>
@@ -68,7 +62,6 @@
         <% end  %>
          </p> 
       </div>
-    </div>
     <% end %>
   <% end %>
 

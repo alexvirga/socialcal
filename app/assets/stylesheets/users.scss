@@ -28,16 +28,25 @@
 
 .simple-calendar {
   
-    table {
-      -webkit-border-horizontal-spacing: 0px;
-      -webkit-border-vertical-spacing: 0px;
-      background-color: rgba(255, 254, 254, 0.959);
-      border: 1px solid rgb(221, 221, 221);
-      border-collapse: collapse;
-      box-sizing: border-box;
-
-      max-width: 100%;
-      width: 100%;
+  table {
+    -webkit-border-horizontal-spacing: 0px;
+    -webkit-border-vertical-spacing: 0px;
+    background-color: rgba(255, 254, 254, 0.938);
+    border: 14px solid #dddddd59;
+    border-top-style: solid;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    border-radius: 17px;
+    border-image-source: initial;
+    border-image-slice: initial;
+    border-image-width: initial;
+    border-image-outset: initial;
+    border-image-repeat: initial;
+    box-sizing: border-box;
+    max-width: 100%;
+    width: 100%;
+    border-collapse: separate !important;
     }
   
     tr {
