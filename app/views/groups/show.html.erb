@@ -1,20 +1,15 @@
-<!-- 
-<body>
-<div class="container">
-<h1> <%= @group.name  %> </h1>
-<h2>Group Description:<%= @group.description  %> </h2>
-<h2>Members:</h2>
-<h2> <% my_users = @group.users.each do |user|  %> </h2>
-<h3><%= link_to user.name, "/users/#{user.id}" %></h3>
-<% end %>
-<h2>Events:</h2>
-<% my_users.each do |users| %>
-<% users.events.each do |events| %>
-<h3><%=link_to events.title, "/events/#{events.id}" %> </h3>
-<% end %>
-<% end %>
-</div>
-</body> -->
+<% @leaders = [] %>
+<% UserGroup.all.each do |usergroup| %>
+<% if usergroup.leader == true %>
+<% @leaders << usergroup %>
+<% @leaders %>
+<% end  %>
+<% end  %>
+<% @leaders.each do |leader| %>
+<% if leader.group_id.to_i == @group.id%>
+<% @leader = leader.user %>
+<% end  %>
+<% end  %>
 
 <body>
     <div class="container">
@@ -31,6 +26,11 @@
               <% else %>
               Members
               <% end %>
+              <% if @leader %>
+                <% if session[:user_id] == @leader.id.to_i %>
+                  <p id="edit_group" ><%= link_to "Edit Group", edit_group_path(@group)%> </p>
+                <% end  %>
+              <% end %>
               <h5 class="card-title text-center"><strong> Description:</strong> <%= @group.description %></h5>
               <h5 class="card-title text-center"> <strong>Group Members:</strong></h5>
               <h5 id="show-group-members"><% @group.users.each do |user| %> </h5>
@@ -39,7 +39,6 @@
                 <% end %>
                 <br>
                 <br>
-                <p id="edit_group" ><%= link_to "Edit Group", "/groups/#{@group.id}/edit"%> </p>
                 <%= link_to  "Leave Group", "/groups/usergroups/#{@group.id}", method: "delete" %>
                 <br>
               </div>
